@@ -1,4 +1,4 @@
-use ExtUtils::MakeMaker;
+use ExtUtils::MakeMaker 6.46;
 
 require 5.008;
 
@@ -12,12 +12,15 @@ WriteMakefile(
 	'AUTHOR'       => 'brian d foy <bdfoy@cpan.org>',
 	
 	'PREREQ_PM'    => { 
-		'Test::More' => '0',
+		'Test::More' => '0.94',
+		'Benchmark'  => '0',
 		},
 
-	META_MERGE => {
+	'EXE_FILES' => [ qw(scripts/survey) ],
+
+	'META_MERGE' => {
 		resources => {
-			Repository => 'http://github.com/briandfoy/'
+			Repository => 'https://github.com/briandfoy/surveyor-app'
 			}
 		},
 
