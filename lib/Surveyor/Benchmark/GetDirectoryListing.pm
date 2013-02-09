@@ -1,4 +1,4 @@
-package GetDirectoryListing;
+package Surveyor::Benchmark::GetDirectoryListing;
 use strict;
 use warnings;
 
