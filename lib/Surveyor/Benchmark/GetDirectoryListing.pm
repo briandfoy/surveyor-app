@@ -27,7 +27,10 @@ you choose.
 
 sub set_up {
 	my( $class, $directory ) = @_;
-	$directory = cwd() unless defined $directory;
+	unless( defined $directory ) {
+		require Cwd;
+		$directory = Cwd::cwd();
+		}
 	die "Directory [$directory] does not exist!\n" unless -e $directory;
 	die "[$directory] does not exist!\n" unless -e $directory;
 	chdir( $directory ) or die "Could not change to $ARGV[0]: $!\n";

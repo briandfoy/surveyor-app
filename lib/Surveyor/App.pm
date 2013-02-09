@@ -57,7 +57,6 @@ in C<PACKAGE> as a class method.
 sub run {
 	my( $package, $iterations, @args ) = @_;
 	$package->set_up( @args ) if $package->can( 'set_up' );
-	my @subs = get_all_bench_( $package );
 
 	# the key is a label, which is the stuff after bench_
 	no strict 'refs';
@@ -67,6 +66,9 @@ sub run {
 			\&{"${package}::$_"}
 		)
 		} get_all_bench_( $package );
+
+	die "Did not find any bench_ subroutines in [$package]\n"
+		unless keys %hash;
 
 	require Benchmark;
 	my $results = Benchmark::timethese( $iterations, \%hash );
@@ -88,7 +90,7 @@ in C<PACKAGE> as a class method.
 
 sub test {
 	my( $package, @args ) = @_;
-	my @subs = get_all_bench_();
+	my @subs = get_all_bench_( $package );
 	my %results;
 
 	$package->set_up( @args ) if $package->can( 'set_up' );
@@ -116,13 +118,15 @@ sub test {
 =item get_all_bench_( PACKAGE )
 
 Extract all of the subroutines starting with C<bench_> in C<PACKAGE>.
+If you don't define a package, it uses the package this subroutine
+was compiled in (so that's probably useless).
 
 
 =cut
 
 sub get_all_bench_ {
 	my( $package ) = @_;
-	$package = defined $pacakge ? $package :: __PACKAGE__;
+	$package = defined $package ? $package : __PACKAGE__;
 
 	no strict 'refs';
 	my @subs =
