@@ -23,6 +23,16 @@ it a directory to list.
 This benchmark pits C<glob> against C<opendir> in the directory that
 you choose.
 
+=over 4
+
+=item set_up( DIRECTORY )
+
+Change to C<DIRECTORY> before running the benchmark.
+
+=item tear_down()
+
+A no-op.
+
 =cut
 
 sub set_up {
@@ -40,16 +50,26 @@ sub set_up {
 
 sub tear_down { 1 }
 
+=item bench_opendir
+
+=cut
+
 sub bench_opendir {
 	opendir my( $dh ), "."; 
 	my @f = readdir( $dh );
 	}
+
+=item bench_glob
+
+=cut
 
 sub bench_glob {
 	my @f = glob(".* *")
 	}
 
 __PACKAGE__;
+
+=back
 
 =head1 TO DO
 
