@@ -1,0 +1,15 @@
+Changes
+examples/placeholder.pl
+lib/Surveyor/App.pm
+lib/Surveyor/Benchmark/GetDirectoryListing.pm
+LICENSE
+Makefile.PL
+MANIFEST			This list of files
+MYMETA.json
+MYMETA.yml
+README
+scripts/survey
+t/load.t
+t/pod.t
+t/pod_coverage.t
+t/test_manifest
