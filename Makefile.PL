@@ -20,7 +20,7 @@ WriteMakefile(
 
 	'META_MERGE' => {
 		resources => {
-			Repository => 'https://github.com/briandfoy/surveyor-app'
+			repository => 'https://github.com/briandfoy/surveyor-app'
 			}
 		},
 
