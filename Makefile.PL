@@ -2,12 +2,14 @@ require 5.008;
 use strict;
 use warnings;
 
+use File::Spec::Functions qw(catfile);
 
+my $module    = 'Surveyor::App';
 my $github    = 'https://github.com/briandfoy/surveyor-app';
-my $main_file = 'lib/Surveyor/App.pm';
+my $main_file = catfile( 'lib', split /::/, "$module.pm" );
 
 my %WriteMakefile = (
-	'NAME'	       => 'Surveyor::App',
+	'NAME'	       => $module,
 	'ABSTRACT_FROM' => $main_file,
 	'VERSION_FROM'  => $main_file,
 	'LICENSE'      => 'perl',
