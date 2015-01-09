@@ -1,12 +1,10 @@
-require 5.008;
-
-package Surveyor::App;
+require 5.014;
 use strict;
 use warnings;
 
 use File::Spec::Functions qw(catfile);
 
-my $module    = __PACKAGE__;
+my $module    = 'Surveyor::App';
 my $github    = 'https://github.com/briandfoy/surveyor-app';
 my $main_file = catfile( 'lib', split /::/, "$module.pm" );
 
@@ -17,9 +15,10 @@ my %WriteMakefile = (
 	'LICENSE'      => 'perl',
 	'AUTHOR'       => 'brian d foy <bdfoy@cpan.org>',
 
+	'EXE_FILES' => [ qw(scripts/survey) ],
+
 	'CONFIGURE_REQUIRES' => {
-		'ExtUtils::MakeMaker'   => '6.64',
-		'File::Spec::Functions' => '0',
+		'ExtUtils::MakeMaker' => '6.64',
 		},
 
 	'BUILD_REQUIRES' => {
@@ -47,8 +46,6 @@ my %WriteMakefile = (
 			homepage => $github,
 			},
 		},
-	
-	'EXE_FILES' => [ qw(scripts/survey) ],
 
 	clean  => { FILES    => q|Surveyor-App-*| },
 	);
@@ -63,7 +60,7 @@ sub do_it {
 		eval{ "$MM " . $WriteMakefile{'CONFIGURE_REQUIRES'}{'ExtUtils::MakeMaker'} }
 			//
 		"$MM 6.64";
-	eval "use $MM_version" || die "Could not load $MM_version: $@";
+	eval "use $MM_version; 1" or die "Could not load $MM_version: $@";
 	eval "use Test::Manifest 1.21" 
 		if -e File::Spec->catfile( qw(t test_manifest) );
 	WriteMakefile( %WriteMakefile );
