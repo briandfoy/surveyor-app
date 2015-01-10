@@ -49,7 +49,7 @@ my %WriteMakefile = (
 			},
 		},
 
-	clean  => { FILES    => q|Surveyor-App-*| },
+	clean  => { FILES    => "$dist-*" },
 	);
 
 sub arguments { \%WriteMakefile }
