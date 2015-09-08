@@ -7,6 +7,8 @@ use vars qw($VERSION);
 
 $VERSION = '0.12';
 
+=encoding utf8
+
 =head1 NAME
 
 Surveyor::App - Run benchmarks from a package
@@ -55,7 +57,7 @@ sub tear_down { 1 }
 =cut
 
 sub bench_opendir {
-	opendir my( $dh ), "."; 
+	opendir my( $dh ), ".";
 	my @f = readdir( $dh );
 	}
 
