@@ -2,10 +2,7 @@ package Surveyor::Benchmark::GetDirectoryListing;
 use strict;
 use warnings;
 
-use subs qw();
-use vars qw($VERSION);
-
-$VERSION = '0.12';
+our $VERSION = '0.12';
 
 =encoding utf8
 

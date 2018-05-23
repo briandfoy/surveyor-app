@@ -2,10 +2,7 @@ package Surveyor::App;
 use strict;
 use warnings;
 
-use subs qw();
-use vars qw($VERSION);
-
-$VERSION = '0.12';
+our $VERSION = '0.121';
 
 =encoding utf8
 
