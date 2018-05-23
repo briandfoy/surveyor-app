@@ -120,7 +120,6 @@ Extract all of the subroutines starting with C<bench_> in C<PACKAGE>.
 If you don't define a package, it uses the package this subroutine
 was compiled in (so that's probably useless).
 
-
 =cut
 
 sub get_all_bench_ {
@@ -156,7 +155,7 @@ brian d foy, C<< <bdfoy@cpan.org> >>
 
 =head1 COPYRIGHT AND LICENSE
 
-Copyright © 2013-2015, brian d foy <bdfoy@cpan.org>. All rights reserved.
+Copyright © 2013-2018, brian d foy <bdfoy@cpan.org>. All rights reserved.
 
 You may redistribute this under the terms of the Artistic License 2.0.
 
