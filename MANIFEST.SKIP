@@ -67,3 +67,4 @@ t/\d
 \.icloud$
 \A\.github\b
 
+.github_token
