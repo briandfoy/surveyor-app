@@ -1,3 +1,5 @@
+use v5.14;
+
 package Surveyor::App;
 use strict;
 use warnings;
